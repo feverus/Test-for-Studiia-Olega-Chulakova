@@ -1,0 +1,34 @@
+{
+	"ru": {
+		"sort": "Сортировка",
+		"id": "ID",
+		"photo": "Фото",
+		"name": "Имя",
+		"age": "Возраст",
+		"tohigh": "По возрастанию",
+		"tolow": "По убыванию",
+		"view": "Вид",
+		"table": "Таблица",
+		"preview": "Превью",
+		"favourite": "Избранное",
+		"phone": "Телефон",
+		"ru": "Русский",
+		"en": "English"
+	},
+	"en": {
+		"sort": "Sorting",
+		"id": "ID",
+		"photo": "Photo",
+		"name": "Name",
+		"age": "Age",
+		"tohigh": "Ascending",
+		"tolow": "Descending",
+		"view": "View",
+		"table": "Table",
+		"preview": "Preview",
+		"favourite": "Favourite",
+		"phone": "Phone",
+		"ru": "Русский",
+		"en": "English"
+	}
+}
