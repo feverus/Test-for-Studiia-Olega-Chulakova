@@ -13,7 +13,8 @@
 		"favourite": "Избранное",
 		"phone": "Телефон",
 		"ru": "Русский",
-		"en": "English"
+		"en": "English",
+		"search": "Поиск по имени"
 	},
 	"en": {
 		"sort": "Sorting",
@@ -29,6 +30,7 @@
 		"favourite": "Favourite",
 		"phone": "Phone",
 		"ru": "Русский",
-		"en": "English"
+		"en": "English",
+		"search": "Search by name"
 	}
 }

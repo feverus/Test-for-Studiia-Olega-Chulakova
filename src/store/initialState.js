@@ -3,7 +3,9 @@ const initialState = {
 		isLoaded: false,
 		queryParsed: false,
 		lang: "ru",
-		filter: ""
+		filter: "",
+		autoPlayOn: true,
+		played: "stop"
 	},
 	menu: {
 		"sortType": "id",

@@ -16,3 +16,16 @@ export function setSearch(value) {
 		value: value
 	};
 }
+export function stopAutoPlay(value) {
+	return {
+		type: "STOP_AUTO_PLAY",
+		value: value
+	};
+}
+export function playPauseVideo(id, value) {
+	return {
+		type: "PLAY_PAUSE_VIDEO",
+		value: value,
+		id: id
+	};
+}

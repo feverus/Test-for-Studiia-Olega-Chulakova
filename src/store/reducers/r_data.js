@@ -16,7 +16,7 @@ export default function data(state = initialState.data, action) {
             let copy = state.slice();
             copy[action.id].visible = action.value;
             return copy;        
-        }          
+        }                  
         default: return state;
     }
 }

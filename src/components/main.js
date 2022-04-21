@@ -6,15 +6,6 @@ import Menu from './menu';
 import Table from './table';
 
 class Main_i extends React.Component {
-	firstLoad = () => {
-		console.log('first load');		
-		fetch("/studiia_olega_chulakova/data.json", { cache: "no-store" })
-		.then(result => result.json())
-		.then((result) => {
-			result.forEach((item) => (item["visible"] = false));
-			this.props.doLoadData(result);			
-		})	
-	}
 	langPackLoad = (lang) => {
 		console.log('langpack load');
 		fetch("/langpack.json", { cache: "no-store" })
@@ -23,6 +14,17 @@ class Main_i extends React.Component {
 			this.props.doLoadLangPack(result, lang);
 			this.props.doSetisLoaded(true);		
 		})
+	}	
+	firstLoad = () => {
+		console.log('first load');		
+		fetch("/studiia_olega_chulakova/data.json", { cache: "no-store" })
+		.then(result => result.json())
+		.then((result) => {
+			result.forEach((item) => (item["visible"] = false));
+			result.forEach((item) => (item["played"] = false));
+			this.props.doLoadData(result);				
+			this.langPackLoad("ru");		
+		})	
 	}
 	parseQueryString = () => {
 		let menu = this.props.menu;		 	
@@ -41,7 +43,6 @@ class Main_i extends React.Component {
 		this.props.doChangeAll(sortType, sortDirection, view, lang);
 	}
 	componentDidMount() {
-		this.langPackLoad("ru");
 		this.firstLoad();	
 	}
 	render() {

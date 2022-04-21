@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
-import { useSpring, animated } from 'react-spring';
 import mapStateToProps from '../store/mapStateToProps';
 import mapDispatchToProps from '../store/mapDispatchToProps';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -52,7 +51,6 @@ function Bu_i(props) {
 	const navigate  = useNavigate();
 	let query = React.useMemo(() => new URLSearchParams(search), [search]);	
 	let inProp = false;
-	console.log(props.menu.sortType +' '+ props.action)
 	switch (props.group) {
 		case "type": {
 			if (props.menu.sortType === props.action) {inProp = true;}

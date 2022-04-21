@@ -20,6 +20,13 @@ function mapStateToProps(component) {
 				};
 			}
 		}
+		case "Search": {
+			return function (state) {
+				return {
+					langPack: state.langpack[state.set.lang],
+				};
+			}
+		}
 		case "Table": {
 			return function (state) {
 				return {
@@ -38,7 +45,15 @@ function mapStateToProps(component) {
 				};
 			}
 		}
-
+		case "VideoPlayer": {
+			return function (state) {
+				return {
+					data: state.data,
+					autoPlayOn: state.set.autoPlayOn,
+					played: state.set.played
+				};
+			}
+		}
 		
 		default: return undefined;
 	}

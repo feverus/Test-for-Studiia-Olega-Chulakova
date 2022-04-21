@@ -10,7 +10,10 @@ class Search_i extends React.Component {
 	render() {
 		let l = this.props.langPack;
 		return (
+			<>
+			{l.search + ': '}
 			<input type="text" value={this.props.filter} onChange={(event)=>this.props.doSetSearch(event.target.value)} />
+			</>
 		)
 	}
 }

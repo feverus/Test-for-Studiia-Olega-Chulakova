@@ -40,7 +40,12 @@ function mapDispatchToProps(component) {
 				doSetLang: bindActionCreators(set.setLang, dispatch)
 			};
 		};
-
+		case "VideoPlayer": return function (dispatch) {
+			return {
+				doStopAutoPlay: bindActionCreators(set.stopAutoPlay, dispatch),
+				doPlayPauseVideo: bindActionCreators(set.playPauseVideo, dispatch)
+			};
+		};
 		
 		default: return undefined;
 	}

@@ -16,7 +16,12 @@ export default function set(state = initialState.set, action) {
         case "SET_SEARCH": {
             return {...state, filter: action.value};        
         }        
-    
+        case "STOP_AUTO_PLAY": {
+            return {...state, autoPlayOn: false};        
+        }        
+        case "PLAY_PAUSE_VIDEO": {
+            return {...state, played: action.id};       
+        }      
         default: return state;
     }
 }

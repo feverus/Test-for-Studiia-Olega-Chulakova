@@ -34,14 +34,16 @@ class Table_i extends React.Component {
 		switch (view) {
 			case "table": 
 			return (
-				<div>
+				<>
 					<HumanTable key={0} id={0} title={true} />
 					{copy.map((item) => (<HumanTable key={item.id} id={item.id} />))}
-				</div>
+				</>
 			);	
 			case "preview": 
 			return (
-				copy.map((item) => (<HumanPreview key={item.id} id={item.id} />))
+				<>
+					{copy.map((item) => (<HumanPreview key={item.id} id={item.id} />))}
+				</>
 			);	
 		}		
 	}

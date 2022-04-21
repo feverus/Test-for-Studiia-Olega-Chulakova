@@ -12,7 +12,7 @@ class Human_i extends React.Component {
 
 	}	
 	render() {
-		let src = "studiia_olega_chulakova/images/";
+		let srcImg = "studiia_olega_chulakova/images/";
 		let inProp = this.props.data[this.props.id].visible;
 		let ht = (this.props.id % 2 === 0)? "htl" : "htr";
 		if (this.props.title===true) {
@@ -52,7 +52,7 @@ class Human_i extends React.Component {
 								{this.props.id}
 							</div>
 							<div className="image">
-								<img src={src+this.props.data[this.props.id].image+'.svg'}></img>
+								<img src={srcImg+this.props.data[this.props.id].image+'.svg'}></img>
 							</div>
 							<div className="name">
 								{this.props.data[this.props.id].name}
