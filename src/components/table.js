@@ -35,7 +35,7 @@ class Table_i extends React.Component {
 			case "table": 
 			return (
 				<>
-					<HumanTable key={0} id={0} title={true} />
+					<HumanTable id={0} title={true} />
 					{copy.map((item) => (<HumanTable key={item.id} id={item.id} />))}
 				</>
 			);	

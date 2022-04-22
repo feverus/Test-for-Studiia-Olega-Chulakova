@@ -14,7 +14,10 @@
 		"phone": "Телефон",
 		"ru": "Русский",
 		"en": "English",
-		"search": "Поиск по имени"
+		"search": "Поиск по имени",
+		"let": "лет",
+		"goda": "года",
+		"god": "год"
 	},
 	"en": {
 		"sort": "Sorting",
@@ -31,6 +34,9 @@
 		"phone": "Phone",
 		"ru": "Русский",
 		"en": "English",
-		"search": "Search by name"
+		"search": "Search by name",
+		"let": "years",
+		"goda": "years",
+		"god": "years"
 	}
 }

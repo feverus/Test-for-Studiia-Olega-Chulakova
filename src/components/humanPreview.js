@@ -6,6 +6,7 @@ import mapStateToProps from '../store/mapStateToProps';
 import mapDispatchToProps from '../store/mapDispatchToProps';
 import Fav from './fav';
 import VideoPlayer from './videoPlayer';
+import {age} from '../other.js'
 
 class Human_i extends React.Component {
 	constructor(props) {
@@ -13,8 +14,9 @@ class Human_i extends React.Component {
 
 	}	
 	render() {
+		let l = this.props.langPack;
 		let srcImg = "studiia_olega_chulakova/images/";
-		let srcVideo = document.location.protocol+'//'+document.location.host+'/'+"studiia_olega_chulakova/videos/";
+		let srcVideo = document.location.origin+document.location.pathname+'/'+"studiia_olega_chulakova/videos/";
 		let inProp = this.props.data[this.props.id].visible;
 		let ht = (this.props.id % 2 === 0)? "htl" : "htr";
 		let st = (this.props.data[this.props.id].video === undefined)? "_without_video" : "_video";
@@ -23,7 +25,7 @@ class Human_i extends React.Component {
 			onChange={(isVisible) => {this.props.doChangeVisible(this.props.id, isVisible)}}
 			intervalDelay={10}
 			partialVisibility={true}>
-				<div className={"forVS"+st}><CSSTransition in={inProp} timeout={600} classNames={ht}
+				<div className={"forVS"+st}><CSSTransition in={inProp} timeout={1000} classNames={ht}
 				appear={true} mountOnEnter={true}>
 					<div className="humanpreview">
 						<div className="left-block">
@@ -38,7 +40,7 @@ class Human_i extends React.Component {
 								favourite={this.props.data[this.props.id].favourite}/>
 							</div>						
 							<div className="age">
-								{this.props.data[this.props.id].age}
+								{this.props.data[this.props.id].age+' '+l[age(this.props.data[this.props.id].age)]}
 							</div>
 							<div className="phone">
 								{this.props.data[this.props.id].phone}

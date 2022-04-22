@@ -1,5 +1,10 @@
+@import "animations.less";
+
 //основной цвет, в него красится иконка favourite
 @primary: #297c0f; 
+@primary: #7b790f; 
+@primary: #1a0f7c;
+
 //фон страницы
 @lighten: lighten(@primary, 60%);
 //фон меню и таблиц
@@ -7,6 +12,14 @@
 //градиент кнопок
 @btnGradientDark: desaturate(lighten(@primary, 20%), 50%);
 @btnGradientLight: desaturate(lighten(@primary, 70%), 50%);
+
+@lightBorder: 1px solid #00000017;
+.topBorder {
+    border-top: @lightBorder;
+    padding-top: 6px;
+}
+
+
 
 body {
     background: @lighten;
@@ -45,13 +58,28 @@ body {
         position: relative;
         transition: all 1000ms ease-out;
         background: linear-gradient(145deg, @btnGradientDark 20%, @btnGradientLight 80%);
-        &:hover {
-            background: linear-gradient(145deg, @btnGradientDark 30%, @btnGradientLight 90%);
-        }
+
     }
+    button::before {
+        position: absolute;
+        content: "";
+        top: 0; right: 0; bottom: 0; left: 0;
+        background: linear-gradient(145deg, @btnGradientDark 60%, @btnGradientLight 90%);
+        opacity: 0;
+        z-index: 1;
+        transition: opacity 400ms linear;
+    }    
+    button:hover::before {
+        opacity: 1;
+    }    
+    @span-color: #ffffff50;
     span {
         position: relative;
         z-index: 3;
+        text-shadow: 2px 0 2px @span-color, 
+        0 2px 2px @span-color, 
+        -2px 0 2px @span-color, 
+        0 -2px 2px @span-color;        
     }
     .extra {
         display: flex;
@@ -85,7 +113,6 @@ body {
         flex-direction: row;
         justify-content: space-around;
         align-items: flex-start;
-        align-items: flex-start;
     }
     .buttons_sort, .buttons_view {
         flex: 1 0 50%;
@@ -113,11 +140,10 @@ body {
     }
     .forVS, .forVS_video {
         flex: 1 0 100%;
-        .left-block {
-            flex: 0 0 50%;
+        .left-block, .right-block {
+            flex: 0 0 calc(50% - 10px);
         }
         .right-block {
-            flex: 0 0 50%;
             position: relative;
             video {border-radius: 5px;}
         }
@@ -165,6 +191,9 @@ body {
         .age {flex: 1 0 100%;}
         .phone {flex: 1 0 100%;}
         .favourite {flex: 0 0 50px;}
+        .age, .phone, .phrase {
+            .topBorder;                
+        }
     }
     .left-block {
         display: flex;
@@ -199,3 +228,110 @@ body {
         }
     }
 }
+
+
+
+@media (max-width: 890px) {
+    .buttons {
+        margin: 10px 20px 0 20px;
+    } 
+}
+@media (max-width: 750px) {
+    .buttons_view_type {
+        flex-direction: column!important;
+        button{
+            flex:auto!important;
+            width: 155px;
+        }        
+    } 
+    .list .humantable, .list .humanpreview {
+        flex-wrap: wrap;
+    }
+    .list {
+        padding: 0;
+        .humantable {
+            .id {
+                flex: 0 0 65px;    order: 4;
+            }
+            .image {
+                flex: 0 0 65px;    order: 1;
+                img {
+                    width: 50px;
+                }
+            }
+            .name {
+                flex: 1 0 calc(100% - 150px);    order: 2;
+            }
+            .age {
+                flex: 0 0 80px;    order: 3;
+            }
+            .phone {
+                flex: 1 0 calc(100% - 150px);    order: 5;
+            }
+            .favourite {
+                flex: 0 0 80px;    order: 6;
+            }
+            .id, .phone, .favourite {
+                .topBorder;
+                height: 26px;                
+            }
+        }
+    }    
+    .buttons {
+        margin: 10px 0 0 0;
+    }
+}
+@media (max-width: 660px) {
+    .buttons .buttons_sort, .buttons .buttons_view {
+        flex: 1 1 100%!important;
+    } 
+    .buttons .buttons_sort_type, .buttons .buttons_sort_direction, .buttons .buttons_view, .buttons .buttons_view_type, .buttons .buttons_lang, .buttons .buttons_sort {
+        flex-wrap: wrap;
+    }
+    .buttons_view_type {
+        flex-direction: row!important;
+    }    
+    .buttons {
+        margin: 10px 0 0 0;
+        .extra {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            flex: 1 0 100%;
+            flex-direction: row;
+            flex-wrap: wrap;
+            .buttons_lang {
+                order: -1;
+                margin-bottom: 7px;
+            }
+        } 
+        button {
+            flex: 1 0 0!important;
+            padding: 6px 16px;
+        }
+    }
+    .list {
+        .humantable {
+            .image {
+                img {
+                    width: 30px;
+                }
+            }
+        }        
+            .forVS_without_video, .forVS_video {
+                flex: 1 0 100%;
+                .left-block, .right-block {
+                    flex: 0 0 100%;
+                }
+            }
+    }
+}
+
+
+
+
+
+
+
+
+

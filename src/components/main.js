@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { TransitionGroup } from 'react-transition-group';
 import mapStateToProps from '../store/mapStateToProps';
 import mapDispatchToProps from '../store/mapDispatchToProps';
 import Menu from './menu';
@@ -54,9 +55,9 @@ class Main_i extends React.Component {
 			return (
 				<>
 					<Menu />
-					<div className="list">
+					<TransitionGroup className="list">
 						<Table />
-					</div>
+					</TransitionGroup>
 				</>
 			)
 		}	

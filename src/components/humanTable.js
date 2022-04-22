@@ -18,24 +18,26 @@ class Human_i extends React.Component {
 		if (this.props.title===true) {
 			let l = this.props.langPack;
 			return (
-				<div className="humantable">
-					<div className="id">
-						{l.id}
-					</div>
-					<div className="image">
-						{l.photo}
-					</div>
-					<div className="name">
-						{l.name}
-					</div>
-					<div className="age">
-						{l.age}
-					</div>
-					<div className="phone">
-						{l.phone}
-					</div>
-					<div className="favourite">
-						{l.favourite}
+				<div className={"forVS"}>
+					<div className="humantable">
+						<div className="id">
+							{l.id}
+						</div>
+						<div className="image">
+							{l.photo}
+						</div>
+						<div className="name">
+							{l.name}
+						</div>
+						<div className="age">
+							{l.age}
+						</div>
+						<div className="phone">
+							{l.phone}
+						</div>
+						<div className="favourite">
+							{l.favourite}
+						</div>
 					</div>
 				</div>
 			)
@@ -45,30 +47,32 @@ class Human_i extends React.Component {
                 onChange={(isVisible) => {this.props.doChangeVisible(this.props.id, isVisible)}}
 				intervalDelay={10}
 				partialVisibility={true}>
-					<div className={"forVS"}><CSSTransition in={inProp} timeout={600} classNames={ht}
-					appear={true} mountOnEnter={true}>
-						<div className="humantable">
-							<div className="id">
-								{this.props.id}
+					<div className="forVS">
+						<CSSTransition in={inProp} timeout={500} classNames={ht}
+							appear={true} mountOnEnter={true}>
+							<div className="humantable">
+								<div className="id">
+									{this.props.id}
+								</div>
+								<div className="image">
+									<img src={srcImg+this.props.data[this.props.id].image+'.svg'}></img>
+								</div>
+								<div className="name">
+									{this.props.data[this.props.id].name}
+								</div>
+								<div className="age">
+									{this.props.data[this.props.id].age}
+								</div>
+								<div className="phone">
+									{this.props.data[this.props.id].phone}
+								</div>
+								<div className="favourite">
+									<Fav id={this.props.id} 
+									favourite={this.props.data[this.props.id].favourite}/>
+								</div>
 							</div>
-							<div className="image">
-								<img src={srcImg+this.props.data[this.props.id].image+'.svg'}></img>
-							</div>
-							<div className="name">
-								{this.props.data[this.props.id].name}
-							</div>
-							<div className="age">
-								{this.props.data[this.props.id].age}
-							</div>
-							<div className="phone">
-								{this.props.data[this.props.id].phone}
-							</div>
-							<div className="favourite">
-								<Fav id={this.props.id} 
-								favourite={this.props.data[this.props.id].favourite}/>
-							</div>
-						</div>
-					</CSSTransition></div>
+						</CSSTransition>
+					</div>
 				</VisibilitySensor>
 			)			
 		}

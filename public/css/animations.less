@@ -1,0 +1,124 @@
+._0 {opacity: 0;}
+._1 {opacity: 1;}
+._r {position: relative;}
+._t500 {transition: all 500ms ease-out;}
+._t1000 {transition: all 1000ms ease-out;}
+._t500delay {transition: all 500ms ease-out 250ms;}
+
+/* строка таблицы прилетает слева */
+.htl-enter{
+    ._0;    ._r;
+    left: -100vw;
+}
+.htl-enter-active {
+    ._1;    ._r;    ._t500;
+    left: 0;
+}
+.htl-enter-done, .htl-exit {
+    ._1;    ._r;    ._t500;
+    left: 0;
+}
+.htl-exit-active {
+    ._0;    ._r;    ._t500;
+    left: -100vw;
+}
+.htl-exit-done {
+    ._0;    ._r;
+    left: -100vw;
+}
+
+
+/* строка таблицы прилетает справа */
+.htr-enter{
+    ._0;    ._r;
+    left: 100vw;
+}
+.htr-enter-active {
+    ._1;    ._r;    ._t500;
+    left: 0;
+}
+.htr-enter-done, .htr-exit {
+    ._1;    ._r;    ._t500;
+    left: 0;
+}
+.htr-exit-active {
+    ._0;    ._r;    ._t500; 
+    left: 100vw;
+}
+.htr-exit-done {
+    ._0;    ._r;
+    left: 100vw;
+}
+
+/* анимация блока превью */
+
+@hpb_start: rotateY(90deg);
+@hpb_end: rotateY(0deg);
+
+.htl-enter div>div,
+.htr-enter div>div {
+    ._0;    ._r;
+    transform: @hpb_start;
+}
+.htl-enter-active div>div,
+.htr-enter-active div>div {
+    ._1;    ._r;    ._t500delay;
+    transform: @hpb_end;
+}
+.htl-enter-done div>div, .htl-exit .left-block>div,
+.htr-enter-done div>div, .htr-exit .left-block>div {
+    ._1;    ._r;
+    transform: @hpb_end;
+}
+.htl-exit-active div>div,
+.htr-exit-active div>div {
+    ._0;    ._r;    ._t500delay;
+    transform: @hpb_start;
+}
+.htl-exit-done div>div,
+.htr-exit-done div>div {
+    ._0;    ._r;
+    transform: @hpb_start;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* стили активации кнопок*/
+.bsO {border-style: outset;}
+.bsI {border-style: inset;}
+.peA {pointer-events: all;}
+.peN {pointer-events: none;}
+
+.bu-enter{.bsO;    .peA;}
+.bu-enter-active {.bsI;    .peA;    ._t500;}
+.bu-enter-done, .bu-exit {.bsI;    .peA;}
+.bu-exit-active {.bsO;    .peN;    ._t500;}
+.bu-exit-done {.bsO;    .peA;}
+
+.bu-enter::after {._0;}
+.bu-enter-active::after {._1;    ._t1000;}
+.bu-enter-done::after, .bu-exit::after {._1;}
+.bu-exit-active::after {._0;    ._t1000;}
+.bu-exit-done::after {._0;}
+
+.bu-enter::after, .bu-enter-active::after, .bu-enter-done::after, .bu-exit::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: linear-gradient(145deg, #8b8b8b, #d9d9d9);
+}

@@ -25,3 +25,25 @@ export function translit(word) {
 	} 
 	return answer;
 }
+
+
+
+
+
+export function age(age) {
+	let txt = '';
+	let count = age % 100;
+	if (count >= 5 && count <= 20) {
+		txt = 'let';
+	} else {
+		count = count % 10;
+		if (count == 1) {
+			txt = 'god';
+		} else if (count >= 2 && count <= 4) {
+			txt = 'goda';
+		} else {
+			txt = 'let';
+		}
+	}
+	return txt;
+}
