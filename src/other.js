@@ -17,7 +17,7 @@ export function translit(word) {
 		'Э': 'E',    'Ю': 'Yu',   'Я': 'Ya'
 	}; 
 	for (var i = 0; i < word.length; ++i ) {
-		if (converter[word[i]] == undefined){
+		if (converter[word[i]] === undefined){
 			answer += word[i];
 		} else {
 			answer += converter[word[i]];
@@ -37,7 +37,7 @@ export function age(age) {
 		txt = 'let';
 	} else {
 		count = count % 10;
-		if (count == 1) {
+		if (count === 1) {
 			txt = 'god';
 		} else if (count >= 2 && count <= 4) {
 			txt = 'goda';

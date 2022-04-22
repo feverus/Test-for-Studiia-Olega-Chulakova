@@ -9,14 +9,10 @@ import VideoPlayer from './videoPlayer';
 import {age} from '../other.js'
 
 class Human_i extends React.Component {
-	constructor(props) {
-		super(props);
-
-	}	
 	render() {
 		let l = this.props.langPack;
 		let srcImg = "studiia_olega_chulakova/images/";
-		let srcVideo = document.location.origin+document.location.pathname+'/'+"studiia_olega_chulakova/videos/";
+		let srcVideo = document.location.origin+document.location.pathname+"/studiia_olega_chulakova/videos/";
 		let inProp = this.props.data[this.props.id].visible;
 		let ht = (this.props.id % 2 === 0)? "htl" : "htr";
 		let st = (this.props.data[this.props.id].video === undefined)? "_without_video" : "_video";
@@ -30,7 +26,7 @@ class Human_i extends React.Component {
 					<div className="humanpreview">
 						<div className="left-block">
 							<div className="image">
-								<img src={srcImg+this.props.data[this.props.id].image+'.svg'}></img>
+								<img src={srcImg+this.props.data[this.props.id].image+'.svg'} alt={l.photo}></img>
 							</div>
 							<div className="name">
 								{this.props.data[this.props.id].name}

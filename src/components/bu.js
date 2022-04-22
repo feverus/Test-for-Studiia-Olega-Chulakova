@@ -27,7 +27,7 @@ function click(f, action, group, menu, query, navigate) {
 		}		
 	}
 
-	navigate('/?' +
+	navigate(document.location.pathname+'?' +
 				"sortType=" + sortType +
 				"&sortDirection=" + sortDirection +
 				"&view=" + view +

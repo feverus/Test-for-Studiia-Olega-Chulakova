@@ -5,9 +5,6 @@ import mapDispatchToProps from '../store/mapDispatchToProps';
 import Bu from './bu';
 
 class MenuButton_i extends React.Component {
-	constructor(props) {
-		super(props);
-	}		
 	render() {
 		let l = this.props.langPack;
 		switch (this.props.group) {

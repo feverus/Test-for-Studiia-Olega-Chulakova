@@ -9,7 +9,7 @@ import Table from './table';
 class Main_i extends React.Component {
 	langPackLoad = (lang) => {
 		console.log('langpack load');
-		fetch("/langpack.json", { cache: "no-store" })
+		fetch("langpack.json", { cache: "no-store" })
 		.then(result => result.json())
 		.then((result) => {
 			this.props.doLoadLangPack(result, lang);
@@ -18,7 +18,7 @@ class Main_i extends React.Component {
 	}	
 	firstLoad = () => {
 		console.log('first load');		
-		fetch("/studiia_olega_chulakova/data.json", { cache: "no-store" })
+		fetch("studiia_olega_chulakova/data.json", { cache: "no-store" })
 		.then(result => result.json())
 		.then((result) => {
 			result.forEach((item) => (item["visible"] = false));
@@ -36,10 +36,10 @@ class Main_i extends React.Component {
 		let ad = ['tohigh', 'tolow'];		
 		let av = ['table', 'preview'];		
 		
-		let sortType = (at.indexOf(query.get("sortType")) != -1) ? query.get("sortType") : menu.sortType;
-		let sortDirection = (ad.indexOf(query.get("sortDirection")) != -1) ? query.get("sortDirection") : menu.sortDirection;
-		let view = (av.indexOf(query.get("view")) != -1) ? query.get("view") : menu.view;
-		let lang = (al.indexOf(query.get("lang")) != -1) ? query.get("lang") : "ru";
+		let sortType = (at.indexOf(query.get("sortType")) !== -1) ? query.get("sortType") : menu.sortType;
+		let sortDirection = (ad.indexOf(query.get("sortDirection")) !== -1) ? query.get("sortDirection") : menu.sortDirection;
+		let view = (av.indexOf(query.get("view")) !== -1) ? query.get("view") : menu.view;
+		let lang = (al.indexOf(query.get("lang")) !== -1) ? query.get("lang") : "ru";
 				
 		this.props.doChangeAll(sortType, sortDirection, view, lang);
 	}

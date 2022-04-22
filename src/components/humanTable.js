@@ -7,16 +7,12 @@ import mapDispatchToProps from '../store/mapDispatchToProps';
 import Fav from './fav';
 
 class Human_i extends React.Component {
-	constructor(props) {
-		super(props);
-
-	}	
 	render() {
+		let l = this.props.langPack;
 		let srcImg = "studiia_olega_chulakova/images/";
 		let inProp = this.props.data[this.props.id].visible;
 		let ht = (this.props.id % 2 === 0)? "htl" : "htr";
 		if (this.props.title===true) {
-			let l = this.props.langPack;
 			return (
 				<div className={"forVS"}>
 					<div className="humantable">
@@ -55,7 +51,7 @@ class Human_i extends React.Component {
 									{this.props.id}
 								</div>
 								<div className="image">
-									<img src={srcImg+this.props.data[this.props.id].image+'.svg'}></img>
+									<img src={srcImg+this.props.data[this.props.id].image+'.svg'} alt={l.photo}></img>
 								</div>
 								<div className="name">
 									{this.props.data[this.props.id].name}

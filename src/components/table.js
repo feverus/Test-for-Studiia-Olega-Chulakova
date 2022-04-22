@@ -30,7 +30,6 @@ class Table_i extends React.Component {
 		if (this.props.menu.sortDirection === "tolow") {
 			copy.reverse();
 		}
-		var inProp = false;
 		switch (view) {
 			case "table": 
 			return (
