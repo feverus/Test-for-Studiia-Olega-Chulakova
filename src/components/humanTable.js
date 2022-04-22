@@ -44,8 +44,14 @@ class Human_i extends React.Component {
 				intervalDelay={10}
 				partialVisibility={true}>
 					<div className="forVS">
-						<CSSTransition in={inProp} timeout={500} classNames={ht}
-							appear={true} mountOnEnter={true}>
+						<CSSTransition
+							classNames={ht}
+							key={this.props.id}
+							in={inProp}
+							timeout={500}						
+							appear={true}
+							mountOnEnter={true}
+							unmountOnExit={true} >
 							<div className="humantable">
 								<div className="id">
 									{this.props.id}

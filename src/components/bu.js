@@ -54,15 +54,12 @@ function Bu_i(props) {
 	switch (props.group) {
 		case "type": {
 			if (props.menu.sortType === props.action) {inProp = true;}
-			break;
 		} 
 		case "direction": {
 			if (props.menu.sortDirection === props.action) {inProp = true;}
-			break;
 		}
 		case "view": {
 			if (props.menu.view === props.action) {inProp = true;}
-			break;
 		}	
 		case "lang": {
 			if (props.lang === props.action) {inProp = true;}

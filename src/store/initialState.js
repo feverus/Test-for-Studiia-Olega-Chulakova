@@ -9,7 +9,7 @@ const initialState = {
 	},
 	menu: {
 		"sortType": "id",
-		"sortDirection": "toHigh",
+		"sortDirection": "tohigh",
 		"view": "table"
 	},
 	data: [],

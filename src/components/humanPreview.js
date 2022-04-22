@@ -21,37 +21,45 @@ class Human_i extends React.Component {
 			onChange={(isVisible) => {this.props.doChangeVisible(this.props.id, isVisible)}}
 			intervalDelay={10}
 			partialVisibility={true}>
-				<div className={"forVS"+st}><CSSTransition in={inProp} timeout={1000} classNames={ht}
-				appear={true} mountOnEnter={true}>
-					<div className="humanpreview">
-						<div className="left-block">
-							<div className="image">
-								<img src={srcImg+this.props.data[this.props.id].image+'.svg'} alt={l.photo}></img>
+				<div className={"forVS"+st}>
+					<CSSTransition
+						classNames={ht}
+						key={this.props.id}
+						in={inProp}
+						timeout={1000}
+						appear={true}
+						mountOnEnter={true}
+						unmountOnExit={true} >
+						<div className="humanpreview">
+							<div className="left-block">
+								<div className="image">
+									<img src={srcImg+this.props.data[this.props.id].image+'.svg'} alt={l.photo}></img>
+								</div>
+								<div className="name">
+									{this.props.data[this.props.id].name}
+								</div>
+								<div className="favourite">
+									<Fav id={this.props.id} 
+									favourite={this.props.data[this.props.id].favourite}/>
+								</div>						
+								<div className="age">
+									{this.props.data[this.props.id].age+' '+l[age(this.props.data[this.props.id].age)]}
+								</div>
+								<div className="phone">
+									{this.props.data[this.props.id].phone}
+								</div>
+								<div className="phrase">
+									{this.props.data[this.props.id].phrase}
+								</div>
 							</div>
-							<div className="name">
-								{this.props.data[this.props.id].name}
-							</div>
-							<div className="favourite">
-								<Fav id={this.props.id} 
-								favourite={this.props.data[this.props.id].favourite}/>
-							</div>						
-							<div className="age">
-								{this.props.data[this.props.id].age+' '+l[age(this.props.data[this.props.id].age)]}
-							</div>
-							<div className="phone">
-								{this.props.data[this.props.id].phone}
-							</div>
-							<div className="phrase">
-								{this.props.data[this.props.id].phrase}
+							<div className="right-block">
+								{(this.props.data[this.props.id].video === undefined)? "" : <VideoPlayer
+								id={this.props.id}
+								src={srcVideo+this.props.data[this.props.id].video+'.mp4'} />}
 							</div>
 						</div>
-						<div className="right-block">
-							{(this.props.data[this.props.id].video === undefined)? "" : <VideoPlayer
-							id={this.props.id}
-							src={srcVideo+this.props.data[this.props.id].video+'.mp4'} />}
-						</div>
-					</div>
-				</CSSTransition></div>
+					</CSSTransition>
+				</div>
 			</VisibilitySensor>
 		)			
 	}
