@@ -11,7 +11,8 @@
 @moreLighten: desaturate(lighten(@primary, 70%), 10%);
 //градиент кнопок
 @btnGradientDark: desaturate(lighten(@primary, 20%), 50%);
-@btnGradientLight: desaturate(lighten(@primary, 70%), 50%);
+@btnBorder: lighten(@btnGradientDark, 10%);
+@btnGradientLight: desaturate(lighten(@primary, 40%), 50%);
 
 @lightBorder: 1px solid #00000017;
 .topBorder {
@@ -46,28 +47,47 @@ body {
     white-space: nowrap;
     margin: 10px auto 0 auto;
     button {
-        border-radius: 4px;
-        padding: 9px 16px;
-        margin: 5px 4px;        
-        box-shadow: 6px 6px 12px #cececed0, -6px -6px 12px #f2f2f2d0;
-        min-width: 70px;
-        border-color: #ebf6ffba;
-        border-width: 1px;
-        font-weight: bold;
-        color: #464646;
+        border: 1px solid @btnBorder;
+        font-family: Istok Web;
+        letter-spacing: 1px;
+        padding: 6px 16px;
+        margin: 5px 4px;
+        text-align: center;
+        display: block;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: normal;
+        border-radius: 11px;
+        outline: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -o-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        top: -3px;
+        transform: translateY(0px);
         position: relative;
-        transition: all 1000ms ease-out;
-        background: linear-gradient(145deg, @btnGradientDark 20%, @btnGradientLight 80%);
-
+        box-shadow: inset 0 30px 30px -15px rgba(255,255,255,.1), inset 0 0 0 1px rgba(255,255,255,.3), inset 0 1px 20px rgba(0,0,0,0), 0 3px 0 @btnBorder, 0 3px 2px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.1), 0 10px 20px rgba(0,0,0,.1);
+        background: linear-gradient(0deg, @btnGradientDark 20%, @btnGradientLight 80%);
+        color: #ffffff;
+        text-shadow: 0 1px 0 rgba(0,0,0,.3);
+        transition: all 200ms ease-out;
+    }
+    button:active {
+        transform: translateY(3px);
+        box-shadow: inset 0 16px 2px -15px rgba(0,0,0,0), inset 0 0 0 1px rgba(255,255,255,.15), inset 0 1px 20px rgba(0,0,0,.1), 0 0 0 @btnBorder, 0 0 0 2px rgba(255,255,255,.5), 0 0 0 rgba(0,0,0,0), 0 0 0 rgba(0,0,0,0);        
     }
     button::before {
         position: absolute;
-        content: "";
         top: 0; right: 0; bottom: 0; left: 0;
-        background: linear-gradient(145deg, @btnGradientDark 60%, @btnGradientLight 90%);
+        content: "";
+        box-shadow: inset 0 30px 30px -15px rgba(255,255,255,.1), inset 0 0 0 1px rgba(255,255,255,.3), inset 0 1px 20px rgba(0,0,0,0), 0 3px 0 @btnBorder, 0 3px 2px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.1), 0 10px 20px rgba(0,0,0,.1);
+        background: linear-gradient(0deg, @btnGradientDark 60%, @btnGradientLight 80%);
         opacity: 0;
         z-index: 1;
         transition: opacity 400ms linear;
+        border-radius: 11px;
     }    
     button:hover::before {
         opacity: 1;
@@ -75,11 +95,7 @@ body {
     @span-color: #ffffff50;
     span {
         position: relative;
-        z-index: 3;
-        text-shadow: 2px 0 2px @span-color, 
-        0 2px 2px @span-color, 
-        -2px 0 2px @span-color, 
-        0 -2px 2px @span-color;        
+        z-index: 3;      
     }
     .extra {
         display: flex;
@@ -106,7 +122,7 @@ body {
         flex-wrap: wrap;
     }
     .buttons_lang button {
-        padding: 0;
+        padding: 0 16px;
     }
     .buttons_sort_type, .buttons_sort_direction, .buttons_view, .buttons_view_type, .buttons_lang, .buttons_sort {
         display: flex;

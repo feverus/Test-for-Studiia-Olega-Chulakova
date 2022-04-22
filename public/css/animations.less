@@ -99,12 +99,14 @@
 .bsI {border-style: inset;}
 .peA {pointer-events: all;}
 .peN {pointer-events: none;}
+.ca {color: #ffffff;}
+.cn {color: #919191;}
 
-.bu-enter{.bsO;    .peA;}
-.bu-enter-active {.bsI;    .peA;    ._t500;}
-.bu-enter-done, .bu-exit {.bsI;    .peA;}
-.bu-exit-active {.bsO;    .peN;    ._t500;}
-.bu-exit-done {.bsO;    .peA;}
+.bu-enter{.bsO;    .peA;    span {.ca;}}
+.bu-enter-active {.bsI;    .peA;    ._t500;    span {.cn;}}
+.bu-enter-done, .bu-exit {.bsI;    .peN;    span {.cn;}}
+.bu-exit-active {.bsO;    .peN;    ._t500;    span {.ca;}}
+.bu-exit-done {.bsO;    .peA;    span {.ca;}}
 
 .bu-enter::after {._0;}
 .bu-enter-active::after {._1;    ._t1000;}
@@ -115,10 +117,31 @@
 .bu-enter::after, .bu-enter-active::after, .bu-enter-done::after, .bu-exit::after {
     position: absolute;
     content: '';
-    top: 0;
+    top: -1px;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 2;
-    background: linear-gradient(145deg, #8b8b8b, #d9d9d9);
+    z-index: 2;    
+    border: 1px solid #bbb;
+    font-family: Istok Web;
+    letter-spacing: 1px;
+    padding: 0;
+    text-align: center;
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: normal;
+    border-radius: 11px;
+    outline: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    transform: translateY(0px);
+    transition: 200ms all;
+    background: #eee;
+    color: #bbb;
+    text-shadow: 0 1px 0 white;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,1), inset 0 1px 20px rgba(0,0,0,0), 0 3px 0 #bbb, 0 0 0 1px white, 0 3px 0 1px white, 0 10px 20px rgba(0,0,0,0);
 }
